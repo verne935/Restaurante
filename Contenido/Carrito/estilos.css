@@ -315,3 +315,30 @@ header h1 {
     cursor: pointer;
     color: white; /* Asegura que sea visible sobre el fondo oscuro */
 }
+
+
+
+@keyframes bounce {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-5px);
+  }
+}
+
+.minimal-paypal-button {
+  background-color: #000; /* Color negro */
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  animation: bounce 1s ease-in-out infinite; /* Animación de brinquito */
+  transition: background-color 0.3s;
+}
+
+.minimal-paypal-button:hover {
+  background-color: #333; /* Color más claro al pasar el mouse */
+}
