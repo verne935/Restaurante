@@ -377,7 +377,7 @@ header h1 {
   transform: translateY(-50%);
   color: #aaa;
   cursor: pointer;
-}
+} 
 
 /* Placeholder estilizado en cursiva y con color gris claro */
 #busqueda::placeholder {
