@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('img/3.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container {
+    width: 90%;
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 20px auto;
+}
+
+/* Estilo para logo y título */
+.logo-title {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Espacio entre logo y título */
+    text-decoration: none;
+ justify-content: center;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+.logo-title h1 {
+    font-size: 24px;
+    font-family: "Georgia", serif; /* Fuente bonita para el título */
+    color: black;
+    text-transform: uppercase;
+    margin: 0;
+}
+
+/* Estilos para el texto de los párrafos */
+section {
+    padding: 0 20px; /* Añade 20px de espacio a los lados */
+}
+
+section p {
+    font-size: 18px; /* Aumenta el tamaño de la letra */
+    line-height: 1.5;
+    text-align: justify;
+    margin: 10px 0;
+    color: #333;
+}

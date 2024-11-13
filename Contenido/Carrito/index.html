@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="estilos.css">
+    <script src="app.js" async></script>
+    <title>Menu Empanadas | </title>
+</head>
+<body>
+    <header>
+        <a href="https://xerotres77.github.io/parte1/">
+            <h1>Menu Super Empanadas</h1>
+        </a>
+    </header>
+
+    <!-- Input de búsqueda -->
+<br>
+<br>
+    <input type="text" id="busqueda" oninput="filtrarProductos()" placeholder="Buscar producto" style="width: 100%; padding: 10px; margin: 20px 0; font-size: 18px;">
+
+    <section class="contenedor">
+
+        <!-- Contenedor de elementos -->
+        <div class="contenedor-items" id="listaFiltrada">
+
+           <!-- Empanadas -->
+            <div class="item">
+                <span class="titulo-item">Queso Oaxaca</span>
+                <img src="img/Empanadas/e1.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Jamon con Queso</span>
+                <img src="img/Empanadas/e2.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Queso Doble Crema C/Azúcar</span>
+                <img src="img/Empanadas/e3.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Carne</span>
+                <img src="img/Empanadas/e4.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Carne con Queso</span>
+                <img src="img/Empanadas/e5.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Carne con Frijol</span>
+                <img src="img/Empanadas/e6.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+ 
+            <div class="item">
+                <span class="titulo-item">Carne con Frijol y Queso</span>
+                <img src="img/Empanadas/e7.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Frijol con Queso</span>
+                <img src="img/Empanadas/e8.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Camaron</span>
+                <img src="img/Empanadas/e9.png" alt="" class="img-item">
+                <span class="precio-item">$45</span>
+                <button class="boton-item">Agregar al Carrito</button>
+           </div>
+
+            <div class="item">
+                <span class="titulo-item">Camaron con Queso</span>
+                <img src="img/Empanadas/e10.png" alt="" class="img-item">
+                <span class="precio-item">$50</span>
+                <button class="boton-item">Agregar al Carrito</button>
+        </div>
+
+
+            <div class="item">
+                <span class="titulo-item">Camaron al Mojo de Ajo</span>
+                <img src="img/Empanadas/e11.png" alt="" class="img-item">
+                <span class="precio-item">$45</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Camaron al Mojo de Ajo con Queso</span>
+                <img src="img/Empanadas/e12.png" alt="" class="img-item">
+                <span class="precio-item">$50</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Camaron con Chuleta y Queso</span>
+                <img src="img/Empanadas/e13.png" alt="" class="img-item">
+                <span class="precio-item">$55</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Chuleta Ahumada con Queso</span>
+                <img src="img/Empanadas/e14.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Cuatro Quesos</span>
+                <img src="img/Empanadas/e15.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Suprema</span>
+                <img src="img/Empanadas/e16.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Hawaiana</span>
+                <img src="img/Empanadas/e17.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Espinaca con Queso</span>
+                <img src="img/Empanadas/e18.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Champiñon con Queso</span>
+                <img src="img/Empanadas/e19.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Champiñon con Espinaca y Queso</span>
+                <img src="img/Empanadas/e20.png" alt="" class="img-item">
+                <span class="precio-item">$45</span>
+                <button class="boton-item">Agregar al Carrito</button>
+        </div>
+
+
+            <div class="item">
+                <span class="titulo-item">Champiñon con Frijol</span>
+                <img src="img/Empanadas/e21.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Champiñon con Frijol y Queso</span>
+                <img src="img/Empanadas/e22.png" alt="" class="img-item">
+                <span class="precio-item">$45</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Mixta de Camaron</span>
+                <img src="img/Empanadas/e23.png" alt="" class="img-item">
+                <span class="precio-item">$55</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Mixta de Champiñon</span>
+                <img src="img/Empanadas/e24.png" alt="" class="img-item">
+                <span class="precio-item">$45</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Mixta de Carne</span>
+                <img src="img/Empanadas/e25.png" alt="" class="img-item">
+                <span class="precio-item">$45</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Norteña</span>
+                <img src="img/Empanadas/e26.png" alt="" class="img-item">
+                <span class="precio-item">$40</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+            <div class="item">
+                <span class="titulo-item">Camaron al Chiltepin</span>
+                <img src="img/Empanadas/e27.png" alt="" class="img-item">
+                <span class="precio-item">$55</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            
+
+        <!-- Ingredientes Extras -->
+
+            <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Jamón</span>
+                <img src="img/Ingredientes/i1.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+
+                 <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Queso</span>
+                <img src="img/Ingredientes/i2.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Champiñon</span>
+                <img src="img/Ingredientes/i3.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Espinaca</span>
+                <img src="img/Ingredientes/i4.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Piña</span>
+                <img src="img/Ingredientes/i5.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Frijol</span>
+                <img src="img/Ingredientes/i6.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+            <div class="item">
+                <span class="titulo-item">Ingrediente Extra: Carne</span>
+                <img src="img/Ingredientes/i7.png" alt="" class="img-item">
+                <span class="precio-item">$10</span>
+                <button class="boton-item">Agregar al Carrito</button>
+            </div>
+           <div class="item">
+               <span class="titulo-item">Ingrediente Extra: Chuleta</span>
+               <img src="img/Ingredientes/i8.png" alt="" class="img-item">
+               <span class="precio-item">$10</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+
+        <!-- Segundo Titulo -->
+
+<br><br>
+<h1 style="font-size: 2em; font-weight: bold; text-align: center; margin: 20px 0; color: #333;">BIRRIA DE RES</h1>
+<h1 style="font-size: 2em; font-weight: bold; text-align: center; margin: 20px 0; color: #333;">&</h1>
+<h1 style="font-size: 2em; font-weight: bold; text-align: center; margin: 20px 0; color: #333;">RICAS</h1>
+<h1 style="font-size: 2em; font-weight: bold; text-align: center; margin: 20px 0; color: #333;">BEBIDAS</h1>
+
+
+
+           <!-- Birria y lo demas -->
+
+           <div class="item">
+               <span class="titulo-item">Tacos de Birria</span>
+               <img src="img/Extras/ta.png" alt="" class="img-item">
+               <span class="precio-item">$16</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+
+           <div class="item">
+               <span class="titulo-item">Consome de Birria</span>
+               <img src="img/Extras/co.png" alt="" class="img-item">
+               <span class="precio-item">$85</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+
+           <div class="item">
+               <span class="titulo-item">Empanabirria</span>
+               <img src="img/Extras/eb.png" alt="" class="img-item">
+               <span class="precio-item">$50</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+
+        <!-- Continuacion Bebidas -->
+
+           <div class="item">
+               <span class="titulo-item">Coca Cola</span>
+               <img src="img/Extras/ca.png" alt="" class="img-item">
+               <span class="precio-item">$25</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+
+           <div class="item">
+               <span class="titulo-item">Jamaica 1/2Lt</span>
+               <img src="img/Extras/2t.png" alt="" class="img-item">
+               <span class="precio-item">$20</span>
+              <button class="boton-item">Agregar al Carrito</button>
+
+          </div>           <div class="item">
+               <span class="titulo-item">Jamaica 1Lt</span>
+               <img src="img/Extras/1t.png" alt="" class="img-item">
+               <span class="precio-item">$30</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+
+           <div class="item">
+               <span class="titulo-item">Maracuya 1/2Lt</span>
+               <img src="img/Extras/m1.png" alt="" class="img-item">
+               <span class="precio-item">$20</span>
+              <button class="boton-item">Agregar al Carrito</button>
+
+          </div>           <div class="item">
+               <span class="titulo-item">Maracuya 1Lt</span>
+               <img src="img/Extras/m2.png" alt="" class="img-item">
+               <span class="precio-item">$30</span>
+              <button class="boton-item">Agregar al Carrito</button>
+          </div>
+        </div>
+        <!-- fin -->
+
+
+        <!-- Carrito de Compras -->
+        <div class="carrito" id="carrito">
+            <div class="header-carrito">
+                <h2>Tu Carrito</h2>
+            </div>
+
+            <div class="carrito-items"></div>
+            <div class="carrito-total">
+                <div class="fila">
+                    <strong>Tu Total</strong>
+                    <span class="carrito-precio-total">$120.000,00</span>
+                </div>
+                
+              <!-- Formulario de Pago de PayPal -->
+<form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+  <input type="hidden" name="cmd" value="_xclick">
+  <input type="hidden" name="business" value="angelc.martinez.hernandez@gmail.com">
+  <input type="hidden" name="currency_code" value="MXN">
+  <input type="hidden" name="item_name" value="Total del Carrito">
+  <input type="hidden" id="paypal-amount" name="amount" value="">
+  <input type="image" src="https://www.paypalobjects.com/es_XC/MX/i/btn/btn_paynowCC_LG.gif" border="0" name="submit" alt="Comprar ahora con PayPal">
+</form>
+
+
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- Ventana emergente -->
+<div id="popup" class="popup-container">
+    <div class="popup-content">
+        <img src="img/promo.png" alt="Promoción" class="popup-image">
+        <span class="popup-close" onclick="cerrarPopup()">×</span>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,30 @@
+
+.logo {
+    width: 100px;
+    height: auto;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-image: url('img/3.png');
+    background-size: cover;
+    background-position: center;
+    min-height: 50vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Esto asegura que todo el contenido esté centrado en columna */
+}
+
+.container {
+    width: 90%; /* Ancho del contenedor */
+    max-width: 800px;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    margin: 20px auto; /* Asegura que el margen sea auto para que esté centrado */
+}
