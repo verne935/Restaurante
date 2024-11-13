@@ -266,37 +266,31 @@ function scrollToSection() {
   });
 }
 
-// Función para mostrar u ocultar el botón flotante del carrito en móviles
-function actualizarBotonFlotante() {
-  const carritoItems = document.querySelector('.carrito-items');
-  const floatingCartButton = document.getElementById('floating-cart');
+// Habilita arrastrar el botón flotante
+const floatingCart = document.getElementById("floating-cart");
 
-  // Comprueba si el carrito tiene elementos y si es una pantalla móvil
-  if (carritoItems && carritoItems.children.length > 0 && window.innerWidth <= 768) {
-    floatingCartButton.style.display = 'flex'; // Muestra el botón si hay elementos y es móvil
-  } else {
-    floatingCartButton.style.display = 'none'; // Oculta el botón si el carrito está vacío o no es móvil
-  }
+let offsetX, offsetY;
+
+// Manejador de inicio de arrastre
+floatingCart.addEventListener("mousedown", (e) => {
+  offsetX = e.clientX - floatingCart.getBoundingClientRect().left;
+  offsetY = e.clientY - floatingCart.getBoundingClientRect().top;
+  document.addEventListener("mousemove", moveFloatingCart);
+  document.addEventListener("mouseup", stopMovingFloatingCart);
+});
+
+// Función para mover el botón al arrastrar
+function moveFloatingCart(e) {
+  floatingCart.style.left = `${e.clientX - offsetX}px`;
+  floatingCart.style.top = `${e.clientY - offsetY}px`;
+  floatingCart.style.right = "auto"; // Quita la posición inicial de right
+  floatingCart.style.bottom = "auto"; // Quita la posición inicial de bottom
 }
 
-// Llama a actualizarBotonFlotante al cargar la página y cada vez que se agregue o elimine un artículo
-document.addEventListener('DOMContentLoaded', actualizarBotonFlotante);
-
-// Función para agregar al carrito
-function agregarAlCarritoClicked(event) {
-  // ... Código para agregar el artículo al carrito ...
-  actualizarBotonFlotante(); // Actualiza el botón después de agregar
+// Función para detener el movimiento
+function stopMovingFloatingCart() {
+  document.removeEventListener("mousemove", moveFloatingCart);
+  document.removeEventListener("mouseup", stopMovingFloatingCart);
 }
 
-// Función para eliminar del carrito
-function eliminarItemCarrito(event) {
-  event.target.parentElement.parentElement.remove(); // Código para eliminar el artículo
-  actualizarBotonFlotante(); // Actualiza el botón después de eliminar
-}
 
-// Redirige a la sección del carrito
-function scrollToSection() {
-  document.getElementById("carrito").scrollIntoView({
-    behavior: "smooth"
-  });
-}
