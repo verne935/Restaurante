@@ -384,15 +384,14 @@ header h1 {
 
 
 
-/* Oculta el botón flotante por defecto en pantallas más grandes */
+/* Oculta el botón flotante en todas las pantallas por defecto */
 #floating-cart {
-  display: none; /* Oculto en dispositivos de escritorio */
+  display: none; /* Oculto inicialmente en todos los dispositivos */
 }
 
 /* Estilos para el botón flotante de carrito en dispositivos móviles */
 @media (max-width: 768px) {
   #floating-cart {
-    display: flex; /* Visible solo en móviles */
     position: fixed;
     bottom: 20px;
     right: 20px;
@@ -415,6 +414,3 @@ header h1 {
     background-color: #0056b3;
   }
 }
-
-
-
