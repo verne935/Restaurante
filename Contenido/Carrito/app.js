@@ -294,3 +294,57 @@ function stopMovingFloatingCart() {
 }
 
 
+
+// Función para micro
+
+// Función para normalizar el texto, eliminando acentos y puntos finales
+function normalizarTexto(texto) {
+    // Elimina acentos y reemplaza caracteres con su equivalente sin acento
+    const acentos = {
+        'á': 'a', 'é': 'e', 'í': 'i', 'ó': 'o', 'ú': 'u', 'Á': 'A', 'É': 'E', 'Í': 'I', 'Ó': 'O', 'Ú': 'U'
+    };
+    texto = texto.replace(/[áéíóúÁÉÍÓÚ]/g, match => acentos[match]);
+    
+    // Elimina el punto al final si existe
+    if (texto.endsWith('.')) {
+        texto = texto.slice(0, -1);
+    }
+
+    return texto;
+}
+
+let permisoMicrofono = false;
+
+function iniciarBusquedaPorVoz() {
+    if (!permisoMicrofono) {
+        permisoMicrofono = true;
+    }
+    
+    if ('webkitSpeechRecognition' in window) {
+        const reconocimiento = new webkitSpeechRecognition();
+        reconocimiento.lang = "es-ES";
+        reconocimiento.continuous = false;
+        reconocimiento.interimResults = false;
+
+        reconocimiento.onstart = function () {
+            console.log("Escuchando...");
+        };
+
+        reconocimiento.onresult = function (event) {
+            let resultado = event.results[0][0].transcript;
+            resultado = normalizarTexto(resultado); // Normaliza el texto
+            document.getElementById("busqueda").value = resultado;
+            filtrarProductos(); // Ejecuta la búsqueda con el texto reconocido y normalizado
+        };
+
+        reconocimiento.onerror = function (event) {
+            console.error("Error en el reconocimiento de voz: ", event.error);
+            permisoMicrofono = false; // Restablece permiso si hubo un error
+        };
+
+        reconocimiento.start();
+    } else {
+        alert("Tu navegador no soporta búsqueda por voz.");
+    }
+}
+
