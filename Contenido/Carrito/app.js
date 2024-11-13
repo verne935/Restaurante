@@ -266,6 +266,18 @@ function scrollToSection() {
   });
 }
 
+// Función para mostrar u ocultar el botón flotante del carrito
+function actualizarBotonFlotante() {
+  const carritoItems = document.querySelector('.carrito-items');
+  const floatingCartButton = document.getElementById('floating-cart');
+
+  if (carritoItems && carritoItems.children.length > 0) {
+    floatingCartButton.style.display = 'flex'; // Muestra el botón si hay elementos en el carrito
+  } else {
+    floatingCartButton.style.display = 'none'; // Oculta el botón si el carrito está vacío
+  }
+}
+
 // Habilita arrastrar el botón flotante
 const floatingCart = document.getElementById("floating-cart");
 
@@ -293,4 +305,23 @@ function stopMovingFloatingCart() {
   document.removeEventListener("mouseup", stopMovingFloatingCart);
 }
 
+// Actualización del botón flotante después de agregar o eliminar elementos
+function agregarAlCarritoClicked(event) {
+  // Lógica para agregar el artículo al carrito (ya existente en tu código)
+  // ... código para agregar el elemento al carrito ...
+
+  // Llama a actualizarBotonFlotante para mostrar el botón si es necesario
+  actualizarBotonFlotante();
+}
+
+function eliminarItemCarrito(event) {
+  // Lógica para eliminar el artículo del carrito (ya existente en tu código)
+  event.target.parentElement.parentElement.remove();
+
+  // Llama a actualizarBotonFlotante para ocultar el botón si el carrito queda vacío
+  actualizarBotonFlotante();
+}
+
+// Verificar el estado del botón flotante al cargar la página
+document.addEventListener('DOMContentLoaded', actualizarBotonFlotante);
 
