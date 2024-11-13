@@ -348,22 +348,35 @@ header h1 {
 
 /* Contenedor para centrar el campo de búsqueda */
 .search-container {
+  position: relative;
   display: flex;
-  justify-content: center; /* Centra el elemento horizontalmente */
-  margin: 20px 0;
-  width: 100%;
+  justify-content: center;
+  align-items: center; /* Centra verticalmente el ícono */
+  margin: 20px auto; /* Ajusta el margen para centrar */
+  width: 100%; /* Usa todo el ancho disponible para centrar el contenido */
+  max-width: 750px; /* Ancho máximo en pantallas grandes */
 }
+
+
 
 /* Estilos minimalistas para el campo de búsqueda */
 #busqueda {
-  width: 100%; /* Ajusta el ancho a un 100% dentro del contenedor */
-  max-width: 750px; /* Ancho máximo en pantallas grandes */
-  padding: 10px 20px;
+  width: 100%; /* Se ajusta al ancho del contenedor */
+  padding: 10px 40px 10px 20px; /* Ajuste de padding para el icono */
   font-size: 16px;
   border: 3px solid #ccc;
   border-radius: 25px;
   outline: none;
   transition: border 0.3s ease;
+}
+
+.input-icon {
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #aaa;
+  cursor: pointer;
 }
 
 /* Placeholder estilizado en cursiva y con color gris claro */
