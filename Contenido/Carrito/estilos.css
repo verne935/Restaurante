@@ -384,33 +384,37 @@ header h1 {
 
 
 
-/* Oculta el botón flotante en todas las pantallas por defecto */
-#floating-cart {
-  display: none; /* Oculto inicialmente en todos los dispositivos */
+// Función para mostrar u ocultar el botón flotante del carrito en móviles
+function actualizarBotonFlotante() {
+  const carritoItems = document.querySelector('.carrito-items');
+  const floatingCartButton = document.getElementById('floating-cart');
+
+  // Comprueba si el carrito tiene elementos y si es una pantalla móvil
+  if (carritoItems && carritoItems.children.length > 0 && window.innerWidth <= 768) {
+    floatingCartButton.style.display = 'flex'; // Muestra el botón si hay elementos y es móvil
+  } else {
+    floatingCartButton.style.display = 'none'; // Oculta el botón si el carrito está vacío o no es móvil
+  }
 }
 
-/* Estilos para el botón flotante de carrito en dispositivos móviles */
-@media (max-width: 768px) {
-  #floating-cart {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    width: 60px;
-    height: 60px;
-    background-color: #007bff;
-    color: white;
-    border-radius: 50%;
-    align-items: center;
-    justify-content: center;
-    font-size: 24px;
-    cursor: pointer;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-    z-index: 1000;
-    user-select: none;
-    transition: background-color 0.3s ease;
-  }
+// Llama a actualizarBotonFlotante al cargar la página y cada vez que se agregue o elimine un artículo
+document.addEventListener('DOMContentLoaded', actualizarBotonFlotante);
 
-  #floating-cart:hover {
-    background-color: #0056b3;
-  }
+// Función para agregar al carrito
+function agregarAlCarritoClicked(event) {
+  // ... Código para agregar el artículo al carrito ...
+  actualizarBotonFlotante(); // Actualiza el botón después de agregar
+}
+
+// Función para eliminar del carrito
+function eliminarItemCarrito(event) {
+  event.target.parentElement.parentElement.remove(); // Código para eliminar el artículo
+  actualizarBotonFlotante(); // Actualiza el botón después de eliminar
+}
+
+// Redirige a la sección del carrito
+function scrollToSection() {
+  document.getElementById("carrito").scrollIntoView({
+    behavior: "smooth"
+  });
 }
