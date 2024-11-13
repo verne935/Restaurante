@@ -177,7 +177,7 @@ function cerrarPopup() {
         verificarConexion();
 
         // Opción: Puedes hacer una verificación periódica cada cierto tiempo
-        setInterval(verificarConexion, 2000); // Cada 5 segundos
+        setInterval(verificarConexion, 1000); // Cada 1 segundos
 
 
 
