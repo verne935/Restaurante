@@ -342,3 +342,77 @@ header h1 {
 .minimal-paypal-button:hover {
   background-color: #333; /* Color más claro al pasar el mouse */
 }
+
+
+
+
+/* Contenedor para centrar el campo de búsqueda */
+.search-container {
+  display: flex;
+  justify-content: center; /* Centra el elemento horizontalmente */
+  margin: 20px 0;
+}
+
+/* Estilos minimalistas para el campo de búsqueda */
+#busqueda {
+  width: 50%; /* Ajusta el ancho a un 50% para hacerlo más pequeño */
+  max-width: 750px; /* Ancho máximo en pantallas grandes */
+  padding: 10px 20px;
+  font-size: 16px;
+  border: 3px solid #ccc;
+  border-radius: 25px;
+  outline: none;
+  transition: border 0.3s ease;
+}
+
+/* Placeholder estilizado en cursiva y con color gris claro */
+#busqueda::placeholder {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* Efecto visual al hacer foco en el campo de búsqueda */
+#busqueda:focus {
+  border: 1px solid #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+
+
+
+
+
+/* Oculta el botón flotante por defecto en pantallas más grandes */
+#floating-cart {
+  display: none; /* Oculto en dispositivos de escritorio */
+}
+
+/* Estilos para el botón flotante de carrito en dispositivos móviles */
+@media (max-width: 768px) {
+  #floating-cart {
+    display: flex; /* Visible solo en móviles */
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 60px;
+    height: 60px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    z-index: 1000;
+    user-select: none;
+    transition: background-color 0.3s ease;
+  }
+
+  #floating-cart:hover {
+    background-color: #0056b3;
+  }
+}
+
+
+
