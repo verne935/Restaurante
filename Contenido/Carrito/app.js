@@ -346,5 +346,4 @@ function iniciarBusquedaPorVoz() {
     } else {
         alert("Tu navegador no soporta búsqueda por voz.");
     }
-}
-
+} 
