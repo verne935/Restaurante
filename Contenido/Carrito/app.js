@@ -163,3 +163,134 @@ function cerrarPopup() {
     popup.style.opacity = '0';
     popup.style.visibility = 'hidden';
 }
+
+
+// Función para verificar la conexión a Internet
+        function verificarConexion() {
+            if (!navigator.onLine) {
+                // Redirige a la página de error 404 personalizada
+                window.location.href = '404.html';
+            }
+        }
+
+        // Llama a la función para verificar la conexión cuando se carga la página
+        verificarConexion();
+
+        // Opción: Puedes hacer una verificación periódica cada cierto tiempo
+        setInterval(verificarConexion, 2000); // Cada 5 segundos
+
+
+
+
+
+
+
+
+
+// Lista de productos
+const productos = [
+    { nombre: 'Queso Oaxaca', precio: '$40', img: 'img/Empanadas/e1.png' },
+    { nombre: 'Jamon con Queso', precio: '$40', img: 'img/Empanadas/e2.png' },
+    { nombre: 'Queso Doble Crema C/Azúcar', precio: '$40', img: 'img/Empanadas/e3.png' },
+    { nombre: 'Carne', precio: '$40', img: 'img/Empanadas/e4.png' },
+    { nombre: 'Carne con Queso', precio: '$40', img: 'img/Empanadas/e5.png' },
+    { nombre: 'Carne con Frijol', precio: '$40', img: 'img/Empanadas/e6.png' },
+    { nombre: 'Carne con Frijol y Queso', precio: '$40', img: 'img/Empanadas/e7.png' },
+    { nombre: 'Frijol con Queso', precio: '$40', img: 'img/Empanadas/e8.png' },
+    { nombre: 'Camaron', precio: '$45', img: 'img/Empanadas/e9.png' },
+    { nombre: 'Camaron con Queso', precio: '$50', img: 'img/Empanadas/e10.png' },
+    { nombre: 'Camaron al Mojo de Ajo', precio: '$45', img: 'img/Empanadas/e11.png' },
+    { nombre: 'Camaron al Mojo de Ajo con Queso', precio: '$50', img: 'img/Empanadas/e12.png' },
+    { nombre: 'Camaron con Chuleta y Queso', precio: '$55', img: 'img/Empanadas/e13.png' },
+    { nombre: 'Chuleta Ahumada con Queso', precio: '$40', img: 'img/Empanadas/e14.png' },
+    { nombre: 'Cuatro Quesos', precio: '$40', img: 'img/Empanadas/e15.png' },
+    { nombre: 'Suprema', precio: '$40', img: 'img/Empanadas/e16.png' },
+    { nombre: 'Hawaiana', precio: '$40', img: 'img/Empanadas/e17.png' },
+    { nombre: 'Espinaca con Queso', precio: '$40', img: 'img/Empanadas/e18.png' },
+    { nombre: 'Champiñon con Queso', precio: '$40', img: 'img/Empanadas/e19.png' },
+    { nombre: 'Champiñon con Espinaca y Queso', precio: '$45', img: 'img/Empanadas/e20.png' },
+    { nombre: 'Champiñon con Frijol', precio: '$40', img: 'img/Empanadas/e21.png' },
+    { nombre: 'Champiñon con Frijol y Queso', precio: '$45', img: 'img/Empanadas/e22.png' },
+    { nombre: 'Mixta de Camaron', precio: '$55', img: 'img/Empanadas/e23.png' },
+    { nombre: 'Mixta de Champiñon', precio: '$45', img: 'img/Empanadas/e24.png' },
+    { nombre: 'Mixta de Carne', precio: '$45', img: 'img/Empanadas/e25.png' },
+    { nombre: 'Norteña', precio: '$40', img: 'img/Empanadas/e26.png' },
+    { nombre: 'Camaron al Chiltepin', precio: '$55', img: 'img/Empanadas/e27.png' },
+    { nombre: 'Ingrediente Extra: Jamón', precio: '$10', img: 'img/Ingredientes/i1.png' },
+    { nombre: 'Ingrediente Extra: Queso', precio: '$10', img: 'img/Ingredientes/i2.png' },
+    { nombre: 'Ingrediente Extra: Champiñon', precio: '$10', img: 'img/Ingredientes/i3.png' },
+    { nombre: 'Ingrediente Extra: Espinaca', precio: '$10', img: 'img/Ingredientes/i4.png' },
+    { nombre: 'Ingrediente Extra: Piña', precio: '$10', img: 'img/Ingredientes/i5.png' },
+    { nombre: 'Ingrediente Extra: Frijol', precio: '$10', img: 'img/Ingredientes/i6.png' },
+    { nombre: 'Ingrediente Extra: Carne', precio: '$10', img: 'img/Ingredientes/i7.png' },
+    { nombre: 'Ingrediente Extra: Chuleta', precio: '$10', img: 'img/Ingredientes/i8.png' },
+    { nombre: 'Tacos de Birria', precio: '$16', img: 'img/Extras/ta.png' },
+    { nombre: 'Consome de Birria', precio: '$85', img: 'img/Extras/co.png' },
+    { nombre: 'Empanabirria', precio: '$50', img: 'img/Extras/eb.png' },
+    { nombre: 'Coca Cola', precio: '$25', img: 'img/Extras/ca.png' },
+    { nombre: 'Jamaica 1/2Lt', precio: '$20', img: 'img/Extras/2t.png' },
+    { nombre: 'Jamaica 1Lt', precio: '$30', img: 'img/Extras/1t.png' },
+    { nombre: 'Maracuya 1/2Lt', precio: '$20', img: 'img/Extras/m1.png' },
+    { nombre: 'Maracuya 1Lt', precio: '$30', img: 'img/Extras/m2.png' }
+];
+
+function filtrarProductos() {
+    const busqueda = document.getElementById('busqueda').value.toLowerCase();
+    const lista = document.getElementById('listaFiltrada');
+    lista.innerHTML = ''; // Limpiar la lista
+    const productosFiltrados = productos.filter(producto => producto.nombre.toLowerCase().includes(busqueda));
+    productosFiltrados.forEach(producto => {
+        const item = document.createElement('div');
+        item.classList.add('item');
+        item.innerHTML = `
+            <span class="titulo-item">${producto.nombre}</span>
+            <img src="${producto.img}" alt="" class="img-item">
+            <span class="precio-item">${producto.precio}</span>
+            <button class="boton-item">Agregar al Carrito</button>
+        `;
+        lista.appendChild(item);
+
+        // Agregar el evento click al botón "Agregar al Carrito"
+        const botonAgregar = item.getElementsByClassName('boton-item')[0];
+        botonAgregar.addEventListener('click', agregarAlCarritoClicked);
+    });
+}
+
+
+
+
+// Función para redirigir a la sección del carrito
+function scrollToSection() {
+  document.getElementById("carrito").scrollIntoView({
+    behavior: "smooth"
+  });
+}
+
+// Habilita arrastrar el botón flotante
+const floatingCart = document.getElementById("floating-cart");
+
+let offsetX, offsetY;
+
+// Manejador de inicio de arrastre
+floatingCart.addEventListener("mousedown", (e) => {
+  offsetX = e.clientX - floatingCart.getBoundingClientRect().left;
+  offsetY = e.clientY - floatingCart.getBoundingClientRect().top;
+  document.addEventListener("mousemove", moveFloatingCart);
+  document.addEventListener("mouseup", stopMovingFloatingCart);
+});
+
+// Función para mover el botón al arrastrar
+function moveFloatingCart(e) {
+  floatingCart.style.left = `${e.clientX - offsetX}px`;
+  floatingCart.style.top = `${e.clientY - offsetY}px`;
+  floatingCart.style.right = "auto"; // Quita la posición inicial de right
+  floatingCart.style.bottom = "auto"; // Quita la posición inicial de bottom
+}
+
+// Función para detener el movimiento
+function stopMovingFloatingCart() {
+  document.removeEventListener("mousemove", moveFloatingCart);
+  document.removeEventListener("mouseup", stopMovingFloatingCart);
+}
+
+
