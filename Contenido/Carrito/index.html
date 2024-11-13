@@ -10,20 +10,26 @@
     <title>Menu Empanadas | </title>
 </head>
 <body>
-  
-        
-     <header>
+    
+   <header>
         <a href="https://verne935.github.io/Restaurante/">
             <h1>Menu Super Empanadas</h1>
         </a>
     </header>
 
-
-    
     <!-- Input de búsqueda -->
 <br>
-<br>
-    <input type="text" id="busqueda" oninput="filtrarProductos()" placeholder="Buscar producto" style="width: 100%; padding: 10px; margin: 20px 0; font-size: 18px;">
+<div class="search-container">
+  <input
+    type="text"
+    id="busqueda"
+    oninput="filtrarProductos()"
+    placeholder="Buscar producto"
+  />
+</div>
+
+
+
 
     <section class="contenedor">
 
@@ -358,17 +364,21 @@
                     <span class="carrito-precio-total">$120.000,00</span>
                 </div>
                 
-         
+                <br>
+   <!-- Formulario de Pago de PayPal -->
+           <center>
+        <form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+          <input type="hidden" name="cmd" value="_xclick">
+          <input type="hidden" name="business" value="angelc.martinez.hernandez@gmail.com">
+          <input type="hidden" name="currency_code" value="MXN">
+          <input type="hidden" name="item_name" value="Total del Carrito">
+          <input type="hidden" id="paypal-amount" name="amount" value="">
+          <button type="submit" class="minimal-paypal-button">Pagar con PayPal</button>
+        </form>
+        </center>
 
-  <!-- Formulario de Pago de PayPal -->
-<form id="paypal-form" action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-  <input type="hidden" name="cmd" value="_xclick">
-  <input type="hidden" name="business" value="angelc.martinez.hernandez@gmail.com">
-  <input type="hidden" name="currency_code" value="MXN">
-  <input type="hidden" name="item_name" value="Total del Carrito">
-  <input type="hidden" id="paypal-amount" name="amount" value="">
-  <button type="submit" class="minimal-paypal-button">Pagar con PayPal</button>
-</form>
+
+
 
             </div>
         </div>
@@ -382,5 +392,19 @@
         <span class="popup-close" onclick="cerrarPopup()">×</span>
     </div>
 </div>
+
+
+
+<!-- Botón flotante de carrito -->
+<div id="floating-cart" onclick="scrollToSection()">
+  🛒
+</div>
+
+
+
+
+
+
+
 </body>
 </html>
