@@ -351,11 +351,12 @@ header h1 {
   display: flex;
   justify-content: center; /* Centra el elemento horizontalmente */
   margin: 20px 0;
+  width: 100%;
 }
 
 /* Estilos minimalistas para el campo de búsqueda */
 #busqueda {
-  width: 50%; /* Ajusta el ancho a un 50% para hacerlo más pequeño */
+  width: 100%; /* Ajusta el ancho a un 100% dentro del contenedor */
   max-width: 750px; /* Ancho máximo en pantallas grandes */
   padding: 10px 20px;
   font-size: 16px;
@@ -376,6 +377,7 @@ header h1 {
   border: 1px solid #007bff;
   box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
 }
+
 
 
 
