@@ -15,7 +15,7 @@ self.addEventListener('fetch', function(event) {
     event.respondWith(
         fetch(event.request).catch(function() {
             // Si la solicitud falla, muestra la página offline desde el caché
-            return caches.match('/offline.html');
+            return caches.match('404.html');
         })
     );
 });
