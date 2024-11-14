@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Error 404 - Sin Conexión</title>
+    <style>
+        /* Estilos para centrar el contenido */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+        }
+        .container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Error 404</h1>
+        <p>No tienes conexión a Internet.</p>
+        <img src="img/error404.jpg" alt="Error 404" style="max-width: 50%; height: auto;">
+    </div>
+
+    <script>
+        // Función checkConnection para verificar si hay conexión a Internet
+        function checkConnection() {
+            if (navigator.onLine) {
+                // Si hay conexión, regresa a la página anterior
+                window.history.back();
+            }
+        }
+
+        // Verificar la conexión cada 3 segundos llamando a checkConnection
+        setInterval(checkConnection, 3000);
+    </script>
+
+</body>
+</html>
