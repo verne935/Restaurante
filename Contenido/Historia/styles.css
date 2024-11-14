@@ -57,3 +57,24 @@ section p {
     margin: 10px 0;
     color: #333;
 }
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
+
+@media (max-width: 600px) {
+    .footer {
+        font-size: 12px; /* Tamaño de letra más pequeño en pantallas móviles */
+        padding: 8px;
+    }
+
+    .container {
+        width: 95%; /* Ajusta el ancho del cuadro principal para pantallas pequeñas */
+        padding: 18px;
+    }
+}
