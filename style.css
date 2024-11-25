@@ -324,10 +324,13 @@ body.dark .home .text{
     z-index: 10; /* Asegura que esté encima de las imágenes */
 }
 
+
+
+
 #banner-contenedor {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    display: flex; /* Mantén los elementos en línea */
+    justify-content: space-between; /* Espacio entre la imagen y el pie de página */
+    align-items: center; /* Centra verticalmente */
     overflow: hidden;
     width: 100vw;
     height: 100vh; /* Altura completa de la pantalla */
@@ -335,29 +338,26 @@ body.dark .home .text{
 }
 @media (max-width: 768px) {
     #banner-contenedor {
+        flex-direction: column; /* Cambia a disposición vertical en móviles */
         position: fixed; /* Fija el banner */
         top: 0;
         left: 88px; /* Espacio para la barra lateral */
         width: calc(100% - 88px); /* Usa el ancho restante después de la barra lateral */
         height: 100vh; /* Ocupa toda la altura de la pantalla */
-        display: flex;
-        justify-content: center;
-        align-items: center;
         overflow: hidden; /* Evita desbordamientos */
     }
 
     .banner-imagen {
-        width: 100%; /* Cubre todo el ancho */
-        height: 100%; /* Cubre toda la altura */
+        width: 100%; /* La imagen ocupa todo el ancho */
+        height: auto; /* Escala para mantener la proporción */
         object-fit: cover; /* Escala la imagen sin distorsión */
         z-index: 1; /* Coloca la imagen detrás del pie de página */
     }
 
     footer {
-        position: fixed; /* Fija el pie de página */
-        bottom: 0; /* Siempre visible en la parte inferior */
-        left: 88px; /* Alineado con el inicio del banner */
-        width: calc(100% - 88px); /* Usa el espacio restante del ancho */
+        position: relative; /* Cambia a relativo dentro del flujo del contenedor */
+        bottom: 0;
+        width: 100%; /* El pie de página ocupa todo el ancho */
         background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
         color: #ffffff; /* Texto blanco */
         text-align: center;
@@ -366,6 +366,10 @@ body.dark .home .text{
         z-index: 10; /* Siempre encima de la imagen */
     }
 }
+
+
+
+
 
 
 #centrado {
