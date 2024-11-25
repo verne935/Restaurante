@@ -16,7 +16,7 @@ const bannerImages = {
     },
     mobile: { // Imágenes para móviles
         light: ['img/blanco1m.jpg', 'img/blanco2m.jpg', 'img/blanco3m.jpg'], // Modo claro
-        dark: ['img/oscuro1.jpg', 'img/oscuro2.jpg', 'img/oscuro3.jpg'] // Modo oscuro
+        dark: ['img/oscuro1m.jpg', 'img/oscuro2m.jpg', 'img/oscuro3m.jpg'] // Modo oscuro
     }
 };
 
