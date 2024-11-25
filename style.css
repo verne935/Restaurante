@@ -328,44 +328,35 @@ body.dark .home .text{
 
 
 #banner-contenedor {
-    display: flex; /* Mantén los elementos en línea */
-    justify-content: space-between; /* Espacio entre la imagen y el pie de página */
-    align-items: center; /* Centra verticalmente */
+    display: flex; /* Flexbox para alinear elementos */
+    justify-content: center; /* Centra la imagen horizontalmente */
+    align-items: center; /* Centra la imagen verticalmente */
     overflow: hidden;
     width: 100vw;
-    height: 100vh; /* Altura completa de la pantalla */
+    height: 100vh; /* Ocupa toda la altura de la pantalla */
     position: relative;
 }
-@media (max-width: 768px) {
-    #banner-contenedor {
-        flex-direction: column; /* Cambia a disposición vertical en móviles */
-        position: fixed; /* Fija el banner */
-        top: 0;
-        left: 88px; /* Espacio para la barra lateral */
-        width: calc(100% - 88px); /* Usa el ancho restante después de la barra lateral */
-        height: 100vh; /* Ocupa toda la altura de la pantalla */
-        overflow: hidden; /* Evita desbordamientos */
-    }
 
-    .banner-imagen {
-        width: 100%; /* La imagen ocupa todo el ancho */
-        height: auto; /* Escala para mantener la proporción */
-        object-fit: cover; /* Escala la imagen sin distorsión */
-        z-index: 1; /* Coloca la imagen detrás del pie de página */
-    }
-
-    footer {
-        position: relative; /* Cambia a relativo dentro del flujo del contenedor */
-        bottom: 0;
-        width: 100%; /* El pie de página ocupa todo el ancho */
-        background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
-        color: #ffffff; /* Texto blanco */
-        text-align: center;
-        padding: 10px;
-        font-size: 12px; /* Tamaño adecuado para móviles */
-        z-index: 10; /* Siempre encima de la imagen */
-    }
+.banner-imagen {
+    width: 100%; /* Ocupa todo el ancho */
+    height: 100%; /* Ocupa toda la altura */
+    object-fit: cover; /* Escala la imagen sin distorsión */
+    z-index: 1; /* Coloca la imagen detrás del pie de página */
 }
+
+footer {
+    position: fixed; /* Fija el pie de página en la pantalla */
+    bottom: 0; /* Siempre visible en la parte inferior */
+    left: 0; /* Alineado al borde izquierdo */
+    width: 100%; /* Ocupa todo el ancho */
+    background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+    color: #ffffff; /* Texto blanco */
+    text-align: center;
+    padding: 10px;
+    font-size: 12px; /* Tamaño adecuado para móviles */
+    z-index: 10; /* Asegura que esté encima de la imagen */
+}
+
 
 
 
