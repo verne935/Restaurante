@@ -28,8 +28,7 @@ cursor: url('img/emp1.png'), auto; /* Cambia 'empanada.png' por la ruta real de 
 
 a {
             /* Cambia el puntero a una imagen de empanada cuando está sobre un enlace */
-            cursor: url('img/super.png'), pointer; /* Personaliza con la imagen que desees */
-        }
+            cursor: url('img/super.png'), pointer; /* Personaliza con la imagen que desees*/}
 }
 
 ::selection{
@@ -230,6 +229,7 @@ body.dark .sidebar li a:hover .text{
 .menu-bar .mode .sun-moon{
     height: 50px;
     width: 60px;
+
 }
 
 .mode .sun-moon i{
@@ -246,6 +246,7 @@ body.dark .mode .sun-moon i.moon{
 }
 
 .menu-bar .bottom-content .toggle-switch{
+
     position: absolute;
     right: 0;
     height: 100%;
@@ -309,13 +310,100 @@ body.dark .home .text{
 }
 
 
- #centrado {
-            display: flex;
-            justify-content: center;
-            align-items: flex-start; /* Alinea la imagen hacia arriba */
-            height: 45vh; /* Opcional: ajusta la altura del contenedor según tus necesidades */
-        
-        }
+
+.footer-text {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.25); /* Fondo semi-transparente */
+    color: #ffffff; /* Color de texto blanco */
+    padding: 10px;
+    font-size: 16px;
+    font-weight: bold;
+    z-index: 10; /* Asegura que esté encima de las imágenes */
+}
+
+#banner-contenedor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh; /* Altura completa de la pantalla */
+    position: relative;
+}
+@media (max-width: 768px) {
+    #banner-contenedor {
+        position: fixed; /* Fija el banner */
+        top: 0;
+        left: 88px; /* Espacio para la barra lateral */
+        width: calc(100% - 88px); /* Usa el ancho restante después de la barra lateral */
+        height: 100vh; /* Ocupa toda la altura de la pantalla */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden; /* Evita desbordamientos */
+    }
+
+    .banner-imagen {
+        width: 100%; /* Cubre todo el ancho */
+        height: 100%; /* Cubre toda la altura */
+        object-fit: cover; /* Escala la imagen sin distorsión */
+        z-index: 1; /* Coloca la imagen detrás del pie de página */
+    }
+
+    footer {
+        position: fixed; /* Fija el pie de página */
+        bottom: 0; /* Siempre visible en la parte inferior */
+        left: 88px; /* Alineado con el inicio del banner */
+        width: calc(100% - 88px); /* Usa el espacio restante del ancho */
+        background-color: rgba(0, 0, 0, 0.7); /* Fondo semitransparente */
+        color: #ffffff; /* Texto blanco */
+        text-align: center;
+        padding: 10px;
+        font-size: 12px; /* Tamaño adecuado para móviles */
+        z-index: 10; /* Siempre encima de la imagen */
+    }
+}
+
+
+#centrado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+.slides {
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+}
+
+
+
+.banner-imagen {
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
+}
+
+
+
+
+.banner-imagen.active {
+    opacity: 1;
+}
 
  #comida1{
         float: right;
@@ -332,4 +420,12 @@ body.dark .home .text{
 
 .underline {
     text-decoration: underline;
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif; /* Cambia a Times New Roman */
 }
