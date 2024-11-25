@@ -11,12 +11,12 @@ let carouselInterval; // Intervalo para el carrusel
 // ==================== CONFIGURACIÓN DE IMÁGENES ====================
 const bannerImages = {
     pc: { // Imágenes para PC
-        light: ['img/error404.jpg', 'img/blanco2.webp', 'img/blanco3.webp'], // Modo claro
+        light: ['img/blanco1.webp', 'img/blanco2.webp', 'img/blanco3.webp'], // Modo claro
         dark: ['img/oscuro1.webp', 'img/oscuro2.webp', 'img/oscuro3.webp'] // Modo oscuro
     },
     mobile: { // Imágenes para móviles
-        light: ['img/mobil1.webp', 'img/mobil2.webp', 'img/mobil3.webp'], // Modo claro
-        dark: ['img/mobile1.webp', 'img/mobile2.webp', 'img/mobile3.webp'] // Modo oscuro
+        light: ['img/blanco1m.jpg', 'img/blanco2m.jpg', 'img/blanco3m.jpg'], // Modo claro
+        dark: ['img/oscuro1.jpg', 'img/oscuro2.jpg', 'img/oscuro3.jpg'] // Modo oscuro
     }
 };
 
