@@ -27,6 +27,16 @@ header {
     }
 }
 
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}
+
 header a {
     display: block;
     height: 100%;
