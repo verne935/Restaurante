@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reloj Animado - Super Empanadas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(45deg, #001e2b, #228085, #aa0c09);
+            background-size: 400% 400%;
+            animation: moverFondo 8s ease infinite;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            color: #ffffff;
+            flex-direction: column;
+        }
+
+        @keyframes moverFondo {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        canvas {
+            background: radial-gradient(circle, #f8f4dc, #ffffff);
+            border: 8px solid #aa0c09;
+            border-radius: 50%;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .mensaje {
+            font-size: 24px;
+            margin-top: 20px;
+            padding: 10px 20px;
+            background: rgba(170, 12, 9, 0.9);
+            color: #ffffff;
+            border-radius: 10px;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            animation: parpadeoTexto 2s infinite;
+        }
+
+        .boton-volver {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: #ffffff;
+            background: #228085;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            text-transform: uppercase;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background 0.3s ease;
+        }
+
+        .boton-volver:hover {
+            background: #001e2b;
+        }
+
+        @keyframes parpadeoTexto {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+    </style>
+</head>
+<body>
+    <canvas id="reloj" width="300" height="300"></canvas>
+    <div class="mensaje">¡Super Empanadas Fuera de Servicio!</div>
+    <button class="boton-volver" onclick="volverPagina()">Volver a página</button>
+
+    <script>
+        const canvas = document.getElementById("reloj");
+        const ctx = canvas.getContext("2d");
+        const radius = canvas.height / 2;
+
+        ctx.translate(radius, radius); // Mover el origen al centro del canvas
+
+        function dibujarReloj() {
+            dibujarCara(ctx, radius);
+            dibujarNumeros(ctx, radius);
+            dibujarManecillas(ctx, radius);
+            dibujarDecoracion(ctx, radius);
+        }
+
+        function dibujarCara(ctx, radius) {
+            ctx.beginPath();
+            ctx.arc(0, 0, radius, 0, 2 * Math.PI);
+            ctx.fillStyle = "#f8f4dc"; // Beige claro
+            ctx.fill();
+
+            ctx.strokeStyle = "#aa0c09"; // Rojo intenso
+            ctx.lineWidth = radius * 0.05;
+            ctx.stroke();
+
+            ctx.beginPath();
+            ctx.arc(0, 0, radius * 0.1, 0, 2 * Math.PI);
+            ctx.fillStyle = "#aa0c09"; // Rojo intenso
+            ctx.fill();
+        }
+
+        function dibujarNumeros(ctx, radius) {
+            ctx.font = radius * 0.15 + "px Arial";
+            ctx.textBaseline = "middle";
+            ctx.textAlign = "center";
+            for (let num = 1; num <= 12; num++) {
+                const angulo = (num * Math.PI) / 6;
+                ctx.rotate(angulo);
+                ctx.translate(0, -radius * 0.85);
+                ctx.rotate(-angulo);
+                ctx.fillStyle = num % 3 === 0 ? "#aa0c09" : "#001e2b"; // Destacar números de 3 en 3
+                ctx.fillText(num.toString(), 0, 0);
+                ctx.rotate(angulo);
+                ctx.translate(0, radius * 0.85);
+                ctx.rotate(-angulo);
+            }
+        }
+
+        function dibujarManecillas(ctx, radius) {
+            const ahora = new Date();
+            const horas = ahora.getHours() % 12;
+            const minutos = ahora.getMinutes();
+            const segundos = ahora.getSeconds();
+
+            // Hora
+            const anguloHora = ((horas + minutos / 60) * Math.PI) / 6;
+            dibujarManecilla(ctx, anguloHora, radius * 0.5, radius * 0.07, "#001e2b");
+
+            // Minuto
+            const anguloMinuto = ((minutos + segundos / 60) * Math.PI) / 30;
+            dibujarManecilla(ctx, anguloMinuto, radius * 0.7, radius * 0.05, "#228085");
+
+            // Segundo
+            const anguloSegundo = (segundos * Math.PI) / 30;
+            dibujarManecilla(ctx, anguloSegundo, radius * 0.9, radius * 0.02, "#aa0c09");
+        }
+
+        function dibujarManecilla(ctx, angulo, longitud, ancho, color) {
+            ctx.beginPath();
+            ctx.lineWidth = ancho;
+            ctx.lineCap = "round";
+            ctx.strokeStyle = color;
+            ctx.moveTo(0, 0);
+            ctx.rotate(angulo);
+            ctx.lineTo(0, -longitud);
+            ctx.stroke();
+            ctx.rotate(-angulo);
+        }
+
+        function dibujarDecoracion(ctx, radius) {
+            const colores = ["#001e2b", "#228085", "#aa0c09"];
+            for (let i = 0; i < 60; i++) {
+                const angulo = (i * Math.PI) / 30;
+                ctx.rotate(angulo);
+                ctx.translate(0, -radius * 0.95);
+                ctx.beginPath();
+                ctx.arc(0, 0, radius * 0.02, 0, 2 * Math.PI);
+                ctx.fillStyle = colores[i % 3];
+                ctx.fill();
+                ctx.translate(0, radius * 0.95);
+                ctx.rotate(-angulo);
+            }
+        }
+
+        // Función para redirigir al usuario
+        function volverPagina() {
+            window.location.href = "https://verne935.github.io/Restaurante/"; // Cambia por tu URL
+        }
+
+        setInterval(dibujarReloj, 1000);
+    </script>
+</body>
+</html>
