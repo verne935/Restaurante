@@ -382,7 +382,7 @@ function verificarHorario() {
 
     // Definir el rango de horas permitidas
     const horaInicio = 9; // 9:00 a.m.
-    const horaFin = 18; // 3:00 p.m.
+    const horaFin = 15; // 3:00 p.m.
 
     // Verificar si la hora actual está fuera del rango permitido
     if (hora < horaInicio || hora >= horaFin) {
