@@ -371,3 +371,37 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+
+
+
+
+// Redirección basada en la hora actual
+function verificarHorario() {
+    const ahora = new Date();
+    const hora = ahora.getHours();
+
+    // Definir el rango de horas permitidas
+    const horaInicio = 9; // 9:00 a.m.
+    const horaFin = 15; // 3:00 p.m.
+
+    // Verificar si la hora actual está fuera del rango permitido
+    if (hora < horaInicio || hora >= horaFin) {
+        // Redirigir al reloj fuera de servicio
+        window.location.href = "reloj.html"; // Cambia "reloj.html" por la ruta de tu archivo del reloj
+    }
+}
+
+// Ejecutar la verificación al cargar la página
+verificarHorario();
+
+// Monitoreo continuo del horario
+function verificarHorarioContinuo() {
+    setInterval(() => {
+        verificarHorario();
+    }, 60000); // Verifica cada minuto
+}
+
+// Ejecutar la verificación inicial y luego monitorear continuamente
+verificarHorario();
+verificarHorarioContinuo();
+
