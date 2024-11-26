@@ -28,3 +28,13 @@ body {
     text-align: center;
     margin: 20px auto; /* Asegura que el margen sea auto para que esté centrado */
 }
+
+
+.footer {
+    width: 100%;
+    text-align: center;
+    padding: 10px;
+    color: white;
+    font-size: 14px;
+    margin-top: 20px;
+}
