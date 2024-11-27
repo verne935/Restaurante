@@ -417,3 +417,5 @@ body {
 a, button, .boton-item {
     cursor: url('img/super.png'), pointer !important;
 }
+
+
