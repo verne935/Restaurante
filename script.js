@@ -2,11 +2,21 @@
 const body = document.querySelector('body'); // Obtiene el cuerpo del documento
 const bannerContenedor = document.getElementById('banner-contenedor'); // Contenedor del banner
 const modeSwitch = document.querySelector(".toggle-switch"); // Selector del interruptor de modo claro/oscuro
+const modeText = document.querySelector(".mode-text"); // Texto del modo claro/oscuro
 const toggleButton = document.querySelector('.toggle'); // Botón para alternar la barra lateral
 const pedidosLink = document.getElementById('pedidosLink'); // Enlace para pedidos
 let currentIndex = 0; // Índice actual del carrusel
 let images = []; // Almacena las imágenes cargadas
 let carouselInterval; // Intervalo para el carrusel
+
+// Función para actualizar el texto del modo
+function updateModeText() {
+    if (body.classList.contains("dark")) {
+        modeText.innerHTML = '<span class="underline">M</span>odo Oscuro';
+    } else {
+        modeText.innerHTML = '<span class="underline">M</span>odo Claro';
+    }
+}
 
 // ==================== CONFIGURACIÓN DE IMÁGENES ====================
 const bannerImages = {
@@ -69,6 +79,9 @@ function toggleDarkMode() {
     body.classList.toggle("dark"); // Alterna la clase 'dark' en el cuerpo
     loadBannerImages();  // Recarga las imágenes del banner según el modo
     startCarousel();     // Reinicia el carrusel
+    
+    updateModeText(); // Actualiza el texto del modo
+
 }
 
 // ==================== DETECCIÓN DE ERROR 404 ====================
@@ -117,6 +130,7 @@ toggleButton.addEventListener("click", () => {
 // Cambia entre modo claro y oscuro al hacer clic en el interruptor
 modeSwitch.addEventListener("click", () => {
     toggleDarkMode(); // Llama a la función de modo oscuro
+
 });
 
 // ==================== REGISTRO DE SERVICE WORKER ====================
@@ -156,3 +170,4 @@ if ('serviceWorker' in navigator) {
 }
 
 
+updateModeText();
