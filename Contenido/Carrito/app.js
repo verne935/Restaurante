@@ -407,15 +407,4 @@ verificarHorarioContinuo();
 
 
 
-body {
-    min-height: 100vh;
-    background-color: var(--body-color);
-    transition: var(--tran-05);
-    cursor: url('img/emp1.png'), auto; /* Cambia 'empanada.png' por la ruta real de tu imagen */
-}
-
-a, button, .boton-item {
-    cursor: url('img/super.png'), pointer !important;
-}
-
 
